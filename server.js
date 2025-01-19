@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 
-// Map of HTTP status codes and their descriptions
 const statusDescriptions = {
     200: 'OK: The request has succeeded. The meaning of this status depends on the HTTP method used.',
     201: 'Created: The request has succeeded and a new resource has been created as a result.',
@@ -18,7 +17,6 @@ const statusDescriptions = {
     504: 'Gateway Timeout: The server is acting as a gateway and cannot get a response in time.'
 };
 
-// GET endpoint for "/status-info"
 app.get('/status-info', (req, res) => {
     const code = parseInt(req.query.code, 10);
 
@@ -43,7 +41,6 @@ app.get('/status-info', (req, res) => {
     }
 });
 
-// Virtual Assistant API: Greet user
 app.get('/assistant/greet', (req, res) => {
     const name = req.query.name;
 
@@ -60,7 +57,6 @@ app.get('/assistant/greet', (req, res) => {
     });
 });
 
-// Start the server
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
